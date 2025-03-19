@@ -17,7 +17,7 @@ export async function GET(req) {
       return response;
     }
 
-    const { searchParams } = new URL(req.url);
+    const { searchParams } = new URL(req.url,process.env.NEXT_PUBLIC_BASE_URL);
     const postId = searchParams.get('id');
     const page = parseInt(searchParams.get('page') || '1', 10);
     const limit = parseInt(searchParams.get('limit') || '3', 10);
@@ -28,7 +28,7 @@ export async function GET(req) {
         return NextResponse.json({ error: 'Post not found' }, { status: 404 });
       }
       const content = fs.readFileSync(filePath, 'utf-8');
-      return NextResponse.json(JSON.parse(content));
+      return NextResponse.json(JSON.parse(content),{ headers });
     }
 
     // Pagination logic
