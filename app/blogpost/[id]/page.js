@@ -19,7 +19,7 @@ async function fetchBlogPost(id) {
 }
 
 export default async function BlogPage({ params }) {
-  const { id } = params;
+  const { id } = await params;
 
   let blog;
   try {
