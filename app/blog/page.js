@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 async function getBlogs(page = 1, limit = 3) {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://hunting-coder-eight.vercel.app";
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://hunting-coder-elo97rh4h-mohd-husamuddins-projects.vercel.app";
     const response = await fetch(`${baseUrl}/api/posts?page=${page}&limit=${limit}`, {
       cache: "no-store",
     });
