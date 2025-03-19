@@ -9,6 +9,7 @@ async function fetchBlogPost(id) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://hunting-coder-eight.vercel.app"; 
   const apiUrl = `${baseUrl}/api/posts?id=${id}`;
   
+  console.log("Base URL:", process.env.NEXT_PUBLIC_BASE_URL); // Check if env is missing
   console.log("Fetching URL:", apiUrl); // 🔍 Check what the URL is
   
   const res = await fetch(apiUrl, { cache: "no-store" });
