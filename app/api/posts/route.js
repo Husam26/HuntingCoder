@@ -5,13 +5,8 @@ import path from 'path';
 const postsDirectory = path.join(process.cwd(), 'blogsData');
 
 export async function GET(req) {
-  const headers = new Headers({
-    "Access-Control-Allow-Origin": "*", // 🔥 Allow all origins (for testing)
-    "Access-Control-Allow-Methods": "GET",
-    "Access-Control-Allow-Headers": "Content-Type",
-  });
   try {
-    const { searchParams } = new URL(req.url, process.env.NEXT_PUBLIC_BASE_URL);
+    const { searchParams } = new URL(req.url);
     const postId = searchParams.get('id');
     const page = parseInt(searchParams.get('page') || '1', 10);
     const limit = parseInt(searchParams.get('limit') || '3', 10);
