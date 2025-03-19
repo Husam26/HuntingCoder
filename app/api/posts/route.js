@@ -28,7 +28,7 @@ export async function GET(req) {
         return NextResponse.json({ error: 'Post not found' }, { status: 404 });
       }
       const content = fs.readFileSync(filePath, 'utf-8');
-      return NextResponse.json(JSON.parse(content),{ headers });
+      return NextResponse.json(JSON.parse(content));
     }
 
     // Pagination logic
@@ -36,7 +36,7 @@ export async function GET(req) {
     const posts = files.map((file) => {
       const filePath = path.join(postsDirectory, file);
       const content = fs.readFileSync(filePath, 'utf-8');
-      return JSON.parse(content);
+      return JSON.parse(content,{headers});
     });
 
     // Calculate pagination data
