@@ -6,6 +6,17 @@ const postsDirectory = path.join(process.cwd(), 'blogsData');
 
 export async function GET(req) {
   try {
+    // Add CORS headers to allow cross-origin requests
+    const response = NextResponse.next(); // Use NextResponse to modify headers
+    response.headers.set('Access-Control-Allow-Origin', '*'); // Or specify your frontend URL instead of '*'
+    response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    response.headers.set('Access-Control-Allow-Headers', 'Content-Type');
+
+    // Handle CORS preflight request
+    if (req.method === 'OPTIONS') {
+      return response;
+    }
+
     const { searchParams } = new URL(req.url);
     const postId = searchParams.get('id');
     const page = parseInt(searchParams.get('page') || '1', 10);
