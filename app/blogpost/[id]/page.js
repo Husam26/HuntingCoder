@@ -6,7 +6,8 @@ import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 
 async function fetchBlogPost(id) {
-  const res = await fetch(`/api/posts?id=${id}`, {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"; 
+  const res = await fetch(`${baseUrl}/api/posts?id=${id}`, {
     cache: "no-store",
   });
 
