@@ -6,7 +6,7 @@ import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 
 async function fetchBlogPost(id) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://hunting-coder-elo97rh4h-mohd-husamuddins-projects.vercel.app"; 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://hunting-coder-eight.vercel.app"; 
   const res = await fetch(`${baseUrl}/api/posts?id=${id}`, {
     cache: "no-store",
   });
