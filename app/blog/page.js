@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 async function getBlogs(page = 1, limit = 3) {
   try {
-    const response = await fetch(`http://localhost:3000/api/posts?page=${page}&limit=${limit}`, {
+    const response = await fetch(`/api/posts?page=${page}&limit=${limit}`, {
       cache: "no-store",
     });
 
