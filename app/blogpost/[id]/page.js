@@ -7,16 +7,19 @@ import remarkGfm from "remark-gfm";
 
 async function fetchBlogPost(id) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://hunting-coder-eight.vercel.app"; 
-  const res = await fetch(`${baseUrl}/api/posts?id=${id}`, {
-    cache: "no-store",
-  });
+  const apiUrl = `${baseUrl}/api/posts?id=${id}`;
+  
+  console.log("Fetching URL:", apiUrl); // 🔍 Check what the URL is
+  
+  const res = await fetch(apiUrl, { cache: "no-store" });
 
   if (!res.ok) {
-    throw new Error("Failed to fetch the blog post");
+    throw new Error(`Failed to fetch blog post. Status: ${res.status}`);
   }
 
   return res.json();
 }
+
 
 export default async function BlogPage({ params }) {
   const { id } = await params;
