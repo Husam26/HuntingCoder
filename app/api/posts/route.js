@@ -6,11 +6,12 @@ const postsDirectory = path.join(process.cwd(), 'blogsData');
 
 export async function GET(req) {
   try {
-    // Add CORS headers to allow cross-origin requests
     const response = NextResponse.next(); // Use NextResponse to modify headers
-    response.headers.set('Access-Control-Allow-Origin', '*'); // Or specify your frontend URL instead of '*'
-    response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    response.headers.set('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Set CORS headers to allow access from your frontend
+  response.headers.set('Access-Control-Allow-Origin', 'https://hunting-coder-henna.vercel.app'); // Or use '*' for all domains
+  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Include Authorization if using any tokens
 
     // Handle CORS preflight request
     if (req.method === 'OPTIONS') {
