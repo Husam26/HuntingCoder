@@ -37,7 +37,7 @@ export async function GET(req) {
     const posts = files.map((file) => {
       const filePath = path.join(postsDirectory, file);
       const content = fs.readFileSync(filePath, 'utf-8');
-      return JSON.parse(content,{headers});
+      return JSON.parse(content,);
     });
 
     // Calculate pagination data
