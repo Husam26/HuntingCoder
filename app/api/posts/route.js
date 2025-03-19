@@ -8,7 +8,7 @@ export async function GET(req) {
   try {
     // Add CORS headers to allow cross-origin requests
     const response = NextResponse.next(); // Use NextResponse to modify headers
-    response.headers.set('Access-Control-Allow-Origin', 'https://hunting-coder-hj67ybm38-mohd-husamuddins-projects.vercel.app'); // Or specify your frontend URL instead of '*'
+    response.headers.set('Access-Control-Allow-Origin', '*'); // Or specify your frontend URL instead of '*'
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     response.headers.set('Access-Control-Allow-Headers', 'Content-Type');
 
